@@ -18,6 +18,7 @@ public class ErrorHandler {
     {
         mapping.put(ErrorCode.NOT_FOUND, HttpStatus.NOT_FOUND);
         mapping.put(ErrorCode.ALREADY_EXIST, HttpStatus.BAD_REQUEST);
+        mapping.put(ErrorCode.UNKNOWN, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     public ResponseEntity handleError(Response response) {

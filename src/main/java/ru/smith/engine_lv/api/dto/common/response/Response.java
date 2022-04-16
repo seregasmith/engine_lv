@@ -3,7 +3,7 @@ package ru.smith.engine_lv.api.dto.common.response;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
 
 public class Response {
     private Object data;
@@ -35,6 +35,6 @@ public class Response {
 
     @JsonIgnore
     public Boolean hasError() {
-        return isNull(error);
+        return nonNull(error);
     }
 }

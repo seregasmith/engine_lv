@@ -4,9 +4,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import ru.smith.engine_lv.api.dto.common.Vehicle;
+import ru.smith.engine_lv.api.dto.common.VehicleType;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Vehicle model abstraction to store vehicles in memory
@@ -34,5 +36,12 @@ public class VehicleService {
         }
 
         return errorRegisteredVehicles;
+    }
+
+    public List<Vehicle> getVehicles(VehicleType type, Long id) {
+        return REGISTER
+                .stream()
+                .filter(v -> v.getType().equals(type) && v.getId().equals(id))
+                .collect(Collectors.toList());
     }
 }
